@@ -1,22 +1,8 @@
-import 'voiture.dart';
-
-class CabinetComptable {
-  final clients = <Object, int>{};
-
-  void addClient(Object client) {
-    clients[client] = null;
-  }
-
-  String toString() {
-    return "clients : $clients";
-  }
-}
-
 class Garage {
-  final _objetsAReparer = <Vehicule>[];
+  final _objetsAReparer = <Voiture>[];
   Garage();
 
-  void nouvellePriseCharge(Vehicule vehicule) {
+  void nouvellePriseCharge(Voiture vehicule) {
     _objetsAReparer.add(vehicule);
   }
 
@@ -26,13 +12,12 @@ class Garage {
   }
 }
 
-class Voiture extends Vehicule {
+class Voiture {
   static const roues = 4;
   String couleur = 'blouge';
 
-  @override
   void demarrer() {
-    super.demarrer();
+    print('$hashCode ($runtimeType) vroum');
   }
 
   Voiture() {
@@ -41,22 +26,5 @@ class Voiture extends Vehicule {
   @override
   String toString() {
     return 'Voiture $couleur';
-  }
-}
-
-class Moto extends Vehicule {
-  static const roues = 2;
-  String couleur = 'bleue';
-
-  void mettreLaBequille() {
-    print("j'ai mis la béquille");
-  }
-
-  Moto() {
-    //  Coucou je suis le constructeur
-  }
-  @override
-  String toString() {
-    return 'Moto $couleur';
   }
 }
